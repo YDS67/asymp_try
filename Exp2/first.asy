@@ -1,12 +1,14 @@
-texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
-defaultpen(font("T2A","cmr","m","n"));
+//texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
+//defaultpen(font("T2A","cmr","m","n"));
 defaultpen(fontsize(10pt));
 
+//settings.outformat = "pdf";
 settings.render = 16;
 unitsize(5cm);
+
 // golden ratio
 real phi = (sqrt(5)+1)/2;
-// movement equations
+
 real g = 9.81;
 real vx_0 = 1.9;
 real vy_0 = 3.8;
@@ -19,7 +21,7 @@ real y_mid = vy_0 * t_mid - g * t_mid^2 / 2;
 real x_mid = vx_0 * t_mid;
 real vy_f = vy_0 - g * t_f;
 
-label("Тело, брошенное под углом к горизонту", (phi / 2, 1), align=N, heavyblue);
+label("Body thrown at an angle", (phi / 2, 1), align=N, heavyblue);
 
 draw((-.1,0) -- (phi,0), arrow = Arrow);
 draw((0,-.1) -- (0,1), arrow = Arrow);
@@ -37,3 +39,4 @@ label("$\vec{v}_0$", .15 * (vx_0, vy_0), align=NW, red);
 
 dot((x_mid, y_mid), purple);
 label("$y_{max} - ?$", (x_mid, y_mid), align=N, purple);
+
