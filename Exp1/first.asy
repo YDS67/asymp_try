@@ -2,7 +2,8 @@ texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
 defaultpen(font("T2A","cmr","m","n"));
 defaultpen(fontsize(10pt));
 
-settings.outformat = "pdf";
+//settings.outformat = "pdf";
+settings.render = 16;
 unitsize(5cm);
 // golden ratio
 real phi = (sqrt(5)+1)/2;
