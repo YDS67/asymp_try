@@ -29,6 +29,7 @@ marker mark = marker(scale(1)*unitcircle,FillDraw(black));
 
 draw(graph(x1, y1), blue+p, 
     legend = Label("$ \displaystyle N = \frac{N_0}{\sqrt{4 \pi Dt}} \exp \left(-\frac{z^2}{4Dt} \right)$", black));
+fill(graph(x1,y1) -- cycle, blue+opacity(0.07));
 draw(graph(x1, y2), red+dashed+p, legend = Label("Finite difference", black));
 draw(graph(x2, y3), opacity(0), mark, legend = "Random walk");
 
