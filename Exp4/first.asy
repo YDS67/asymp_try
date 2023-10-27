@@ -36,4 +36,5 @@ draw(graph(x2, y3), opacity(0), mark, legend = "Random walk");
 xaxis("Distance, cm",BottomTop,LeftTicks);
 yaxis("Number of particles",LeftRight,RightTicks);
 
-attach(legend(linelength = 20, vskip = 0.7, ymargin = 1), (point(S).x,truepoint(S).y), 5S, UnFill);
+attach(legend(linelength = 20, vskip = 0.7, ymargin = 1, xmargin = 1), 
+    (point(S).x,truepoint(S).y), 5S, UnFill);
