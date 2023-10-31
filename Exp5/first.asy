@@ -2,17 +2,27 @@ texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
 defaultpen(font("T2A","cmr","m","n"));
 defaultpen(fontsize(10pt));
 
-//settings.outformat = "pdf";
 settings.render = 16;
 unitsize(5cm);
+
+//graphical parameters
+real opaque = 0.3;
 
 path box = (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
 real TA = 0.3;
 real TB = 0.7;
-path liquidus = (0,TA){1, 0} .. (1,TB);
-path solidus =  (1,TB){-1,0} .. (0,TA);
-path liquid = liquidus -- (1,1) -- (0,1) -- (0,TA) -- cycle;
-path solid = solidus -- (0,0) -- (1,0) -- (1,TB) -- cycle;
+real T0 = 0.5 * (TA+TB);
+real C0 = 0.4;
+path solidus = (0,TA){1, 0} .. (1,TB);
+path liquidus =  (1,TB){-1,0} .. (0,TA);
+path liquid = liquidus -- (0,1) -- (1,1) -- (1,TB) -- cycle;
+path solid = solidus -- (1,0) -- (0,0) -- (0,TA) -- cycle;
+path isotherm = (0, T0) -- (1, T0);
+pair TC0 = (C0, T0);
+pair TCliq = intersectionpoints(isotherm, liquidus)[0];
+pair TCsol = intersectionpoints(isotherm, solidus)[0];
+path define = TCliq -- TCsol;
+
 
 label("Непрерывный ряд твёрдых растворов", (0.5, 1), align=N, heavyblue);
 
@@ -25,12 +35,22 @@ dot((0,TA));
 dot((1,TB));
 //draw((0,TA) -- (1,TB), blue+dashed);
 draw(liquidus :: solidus);
-fill(liquidus :: solidus -- cycle, green+opacity(.07));
-fill(liquid, blue+opacity(.07));
-fill(solid, yellow+opacity(.07));
-dot((0.4,0.5 * (TA+TB)), red);
+fill(liquidus :: solidus -- cycle, purple+opacity(opaque));
+fill(liquid, blue+opacity(opaque));
+fill(solid, red+opacity(opaque));
+draw(define, purple+dashed);
+draw(define, purple+dashed);
+draw(TCliq -- (TCliq.x, 0), blue+dashed);
+draw(TCsol -- (TCsol.x, 0), red+dashed);
+draw((0, TCliq.y) -- TCliq, dotted);
+dot(TC0, purple);
+dot(TCliq, blue);
+dot(TCsol, red);
 
-draw((0, 0.5 * (TA+TB)) -- (1, 0.5 * (TA+TB)), red+dashed);
 label("Жидкое", (0.5, 1.2 * TB));
 label("Твердое", (0.5, 0.8 * TA));
 label("Ж+Тв", (0.7, 0.83 * TB));
+
+label("$C_L$", (TCliq.x, 0), align=S);
+label("$C_S$", (TCsol.x, 0), align=S);
+label("$T_0$", (0, TCliq.y), align=W);
