@@ -1,0 +1,17 @@
+exec("mogrify -verbose -density 500 -resize 800 -format png ./*.pdf")
+exec("convert -delay 600 *.png movie.mp4")
+convert -delay 20 *.png movie.mp4
+
+mogrify -verbose -density 500 -resize 800 -format png ./wavepacket.pdf
+for f in *.png; do mv "$f" "$(echo "$f" | sed s/-/_/)"; done
+
+
+for f in *.png; do mv "$f" "$(echo "$f" | sed s/_/-/)"; done
+
+
+
+
+
+
+mogrify -verbose -density 300 -format png ./wavepacket.pdf
+ffmpeg -video_size 1920x1080 -framerate 60 -i 'wavepacket-%d.png' out.mp4
