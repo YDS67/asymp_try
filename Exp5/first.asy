@@ -24,7 +24,7 @@ pair TCsol = intersectionpoints(isotherm, solidus)[0];
 path define = TCliq -- TCsol;
 
 
-label("Непрерывный ряд твёрдых растворов", (0.5, 1), align=N, heavyblue);
+label("Непрерывный ряд твёрдых растворов", (0.5, 1), align=N);
 
 draw(box);
 label("$A$", (0,0), align=SW);
@@ -43,14 +43,19 @@ draw(define, purple+dashed);
 draw(TCliq -- (TCliq.x, 0), blue+dashed);
 draw(TCsol -- (TCsol.x, 0), red+dashed);
 draw((0, TCliq.y) -- TCliq, dotted);
+draw(TC0 -- (TC0.x, 0), dotted);
 dot(TC0, purple);
+label("O", TC0, align=1.5*NE);
 dot(TCliq, blue);
 dot(TCsol, red);
 
-label("Жидкое", (0.5, 1.2 * TB));
-label("Твердое", (0.5, 0.8 * TA));
-label("Ж+Тв", (0.7, 0.83 * TB));
+label("Liquid", (0.45, 1.2 * TB));
+label("Solid", (0.55, 0.8 * TA));
+label("L+S", (0.7, 0.83 * TB));
 
 label("$C_L$", (TCliq.x, 0), align=S);
 label("$C_S$", (TCsol.x, 0), align=S);
+label("$C_0$", (TC0.x, 0), align=S);
 label("$T_0$", (0, TCliq.y), align=W);
+
+label("$C = \frac{m_B}{m_A+m_B}, \quad $ $\frac{m_L}{m_S}$ в точке O --- ?", (0.5, 0), align=7*S, Fill(xmargin=3, ymargin=3, lightgray));
