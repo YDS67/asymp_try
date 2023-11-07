@@ -34,7 +34,7 @@ draw(graph(x1, y2), red+dashed+p, legend = Label("Finite difference", black));
 draw(graph(x2, y3), opacity(0), mark, legend = "Random walk");
 
 xaxis("Distance, cm",BottomTop,LeftTicks);
-yaxis("Number of particles",LeftRight,RightTicks);
+yaxis("Number of particles",LeftRight,RightTicks(rotate(90)*Label()));
 
 attach(legend(linelength = 20, vskip = 0.7, ymargin = 1, xmargin = 1), 
     (point(S).x,truepoint(S).y), 5S, UnFill);
