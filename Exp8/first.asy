@@ -9,9 +9,23 @@ real gamcor(real x, real g) {
 real[] x = sequence(256);
 real[] g = {0.04,0.1,0.2,0.4,0.67,1,1.5,2.5,5,10,25};
 real xl = 25;
+int[][] cls = {
+    {215,25,32},
+    {78,58,113},
+    {121,74,130},
+    {206,100,36},
+    {1,93,118},
+    {165,126,163},
+    {173,138,55},
+    {0,124,119},
+    {207,187,204},
+    {113,164,85},
+    {0,162,114},
+};
 
 for(int i=0; i < 11; ++i) {
-    pen p = linewidth(0.5)+cmyk(sin(i)^2,1-i/11,cos(i)^2,0.1);
+    //pen p = linewidth(0.5)+cmyk(sin(2*i)^2,1-i/10,cos(i)^2,0.1);
+    pen p = linewidth(0.5)+RGB(cls[i][0],cls[i][1],cls[i][2]);
     real gamcorG(real x) {
     return gamcor(x,g[i]);
     }
