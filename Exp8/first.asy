@@ -1,5 +1,5 @@
 import graph;
-defaultpen(fontsize(6)+TimesRoman());
+defaultpen(fontsize(7)+TimesRoman());
 settings.render = 12;
 size(12cm, 7cm, IgnoreAspect);
 
@@ -11,7 +11,7 @@ real[] g = {0.04,0.1,0.2,0.4,0.67,1,1.5,2.5,5,10,25};
 real xl = 25;
 
 for(int i=0; i < 11; ++i) {
-    pen p = linewidth(0.5)+cmyk(cos(i)^2,(1-i/10)^2,sin(i)^2,0.1);
+    pen p = linewidth(0.5)+cmyk(sin(i)^2,1-i/11,cos(i)^2,0.1);
     real gamcorG(real x) {
     return gamcor(x,g[i]);
     }
