@@ -1,11 +1,7 @@
-texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
-defaultpen(font("T2A","cmr","m","n"));
 defaultpen(fontsize(10pt));
-
 settings.render = 16;
 unitsize(5cm);
 
-//graphical parameters
 real opaque = 0.3;
 
 path box = (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
@@ -24,8 +20,6 @@ path solidus2 = (1,0){-1,1} .. {-1,5}(CBa, TAB)&(CBa,TAB) .. (1,TB) -- (1,0);
 
 path liquid = (0,TA){1,-0.1} .. {1, -1.5}(CAB,TAB)::(CAB, TAB){1, 1.5} .. {1, 0.1}(1, TB) -- (1,1) -- (0,1) -- cycle;
 path solid = (0,0){1,3} .. {1,5}(CAb, TAB) :: solidus :: (CBa, TAB){1,-5} .. {1,-1}(1,0) -- cycle;
-
-label("Частичная растворимость", (0.5, 1), align=N);
 
 draw(box);
 
