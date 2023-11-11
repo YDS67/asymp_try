@@ -7,10 +7,10 @@ preamble();
 
 presentation P;
 
-P.title = "Presentation title";
-P.author = "Author's name";
-P.affiliation = "Awesome university";
-P.date = "November 2023";
+P.title = "Название презентации";
+P.author = "Автор";
+P.affiliation = "Организация";
+P.date = "Ноябрь 2023";
 
 animation A;
 
@@ -20,7 +20,7 @@ A.add();
 restore();
 
 save();
-P.add_slide("First slide title");
+P.add_slide("Заголовок первого слайда");
 
 P.add_text_right("text1.txt");
 
@@ -31,7 +31,7 @@ A.add();
 restore();
 
 save();
-P.add_slide("Second slide title");
+P.add_slide("Заголовок второго слайда");
 
 P.add_text_left("formula1.txt");
 
@@ -42,7 +42,7 @@ A.add();
 restore();
 
 save();
-P.add_slide("Third slide title");
+P.add_slide("Заголовок третьего слайда");
 
 P.add_text_left("text2.txt");
 
@@ -51,7 +51,7 @@ draw(graphic("wavepacket.png", "width=6cm"), (9,7.5), align=SE);
 A.add();
 restore();
 
-P.title = "Thank you!";
+P.title = "Спасибо за внимание!";
 P.author = "111@111.com";
 P.affiliation = " ";
 P.date = " ";

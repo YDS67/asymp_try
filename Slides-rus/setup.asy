@@ -2,6 +2,8 @@ import logo;
 
 void preamble() {
 
+    texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
+    defaultpen(font("T2A","cmr","m","n"));
     unitsize(1cm);
     settings.outformat = "pdf";
     settings.tex = "pdflatex";
