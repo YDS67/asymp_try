@@ -1,25 +1,20 @@
-import animation;
 import setup;
 import logo;
 import figures;
 
+// Initial settings
 preamble();
-
 presentation P;
 
+// General information
 P.title = "Presentation title";
 P.author = "Author's name";
 P.affiliation = "Awesome university";
 P.date = "November 2023";
 
-animation A;
-
-save();
+// Main title slide
 P.add_title();
-A.add();
-restore();
 
-save();
 P.add_slide("First slide title");
 
 P.add_text_right("text1.txt");
@@ -27,10 +22,6 @@ P.add_text_right("text1.txt");
 frame figure1 = align(fig1().fit(),(1.25cm,1.5cm));
 add(figure1);
 
-A.add();
-restore();
-
-save();
 P.add_slide("Second slide title");
 
 P.add_text_left("formula1.txt");
@@ -38,27 +29,18 @@ P.add_text_left("formula1.txt");
 frame figure2 = align(fig2().fit(),(8.5cm,4cm));
 add(figure2);
 
-A.add();
-restore();
-
-save();
 P.add_slide("Third slide title");
 
 P.add_text_left("text2.txt");
 
 draw(graphic("wavepacket.png", "width=6cm"), (9,7.5), align=SE);
 
-A.add();
-restore();
-
+// Final slide
 P.title = "Thank you!";
 P.author = "111@111.com";
 P.affiliation = " ";
 P.date = " ";
 
-save();
+newpage();
 P.add_title();
-A.add();
-restore();
 
-A.movie();
