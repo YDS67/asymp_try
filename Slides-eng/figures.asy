@@ -1,3 +1,5 @@
+import graph;
+
 picture fig1(real x=0, real y=0, real s=1) 
 {
     picture pic1;
@@ -92,6 +94,48 @@ picture fig2(real x=0, real y=0, real s=1) {
 
     dot(pic, (x_mid, y_mid), purple);
     label(pic, "$y_{max} - ?$", (x_mid, y_mid), align=N, purple);
+
+    return shift(x,y)*scale(s)*pic;
+};
+
+picture fig3(real x=0, real y=0, real s=1) {
+    picture pic;
+
+    defaultpen(fontsize(9pt));
+
+    size(pic, 8cm, 6cm, IgnoreAspect);
+
+    file in1 = input("data/diffusion_results_FD.dat").line();
+    real[][] dat1 = in1;
+    dat1 = transpose(dat1);
+
+    file in2 = input("data/diffusion_results_RW.dat").line();
+    real[][] dat2 = in2;
+    dat2 = transpose(dat2);
+
+    real[] x1 = dat1[0];
+    real[] y1 = dat1[1];
+    real[] y2 = dat1[2];
+
+    real[] x2 = dat2[0];
+    real[] y3 = dat2[1];
+
+    real ymax = max(y1);
+
+    pen p = linewidth(1);
+    marker mark = marker(scale(1)*unitcircle,FillDraw(black));
+
+    draw(pic, graph(x1, y1), blue+p, 
+        legend = Label("$ \displaystyle N = \frac{N_0}{\sqrt{4 \pi Dt}} \exp \left(-\frac{z^2}{4Dt} \right)$", black));
+    fill(pic, graph(x1,y1) -- cycle, blue+opacity(0.07));
+    draw(pic, graph(x1, y2), red+dashed+p, legend = Label("Finite difference", black));
+    draw(pic, graph(x2, y3), opacity(0), mark, legend = "Random walk");
+
+    xaxis(pic, "Distance, cm",BottomTop,LeftTicks);
+    yaxis(pic, "Number of particles",LeftRight,RightTicks(rotate(90)*Label()));
+
+    attach(pic, legend(pic, linelength = 20, vskip = 0.7, ymargin = 1, xmargin = 1), 
+        (7, 0.3*ymax), UnFill);
 
     return shift(x,y)*scale(s)*pic;
 };

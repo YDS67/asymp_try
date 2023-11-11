@@ -22,3 +22,14 @@ picture logo(pair s=0, pen q)
   draw(pic,(a,0)--(b,0),p);
   return shift(s)*pic;
 };
+
+picture frills(pen q)
+{
+  picture pic;
+  pen p=linewidth(2)+q;
+  
+  path (0,7) -- (0,8) .. (1,)
+
+
+  return pic;
+};

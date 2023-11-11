@@ -63,6 +63,25 @@ struct presentation {
         add_text_column(a, 1);
     }
 
+    void add_text_small (string a, real x, real dh = 1) {
+        real h = 0;
+        file text = input(a);
+        while(eof(text) == false) {
+            string txt = text;
+            pen p = fontsize(12pt);
+            label(minipage(txt, 5cm),(x,7.5-h), align=SE, p);
+            h += dh;
+        }
+    }
+
+    void add_text_sright (string a, real dh = 1) {
+        add_text_small(a, 10);
+    }
+
+    void add_text_sleft (string a, real dh = 1) {
+        add_text_small(a, 1);
+    }
+
     void add_slide (string header) {
         newpage();
         //canvas

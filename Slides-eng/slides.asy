@@ -35,6 +35,14 @@ P.add_text_left("text2.txt");
 
 draw(graphic("wavepacket.png", "width=6cm"), (9,7.5), align=SE);
 
+P.add_slide("Fourth slide title");
+
+frame figure3 = align(fig3().fit(),(1.1cm,1.2cm));
+add(figure3);
+
+P.add_text_sright("text3.txt");
+
+
 // Final slide
 P.title = "Thank you!";
 P.author = "111@111.com";
