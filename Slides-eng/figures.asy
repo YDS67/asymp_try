@@ -55,3 +55,43 @@ picture fig1(real x, real y, real s=1)
     
     return shift(x,y)*scale(s)*pic1;
 };
+
+picture fig2(real x, real y, real s=1) {
+    picture pic;
+
+    defaultpen(fontsize(10pt));
+    unitsize(pic, 4cm);
+
+    real phi = (sqrt(5)+1)/2;
+
+    real g = 9.81;
+    real vx_0 = 1.9;
+    real vy_0 = 3.8;
+    real v0 = sqrt(vx_0^2 + vy_0^2);
+    real t_f = 2 * vy_0 / g;
+    real x_f = vx_0 * t_f;
+    real y_max = vy_0^2 / 2 / g;
+    real t_mid = vy_0 / g;
+    real y_mid = vy_0 * t_mid - g * t_mid^2 / 2;
+    real x_mid = vx_0 * t_mid;
+    real vy_f = vy_0 - g * t_f;
+
+    draw(pic, (-.1,0) -- (phi,0), arrow = Arrow);
+    draw(pic, (0,-.1) -- (0,1), arrow = Arrow);
+    label(pic, "$x$", (phi,0), align=E);
+    label(pic, "$y$", (0,1), align=N);
+
+    draw(pic, (phi,1) * .9 -- (phi, .7) * .9, arrow = Arrow(SimpleHead), linewidth(.7));
+    label(pic, "$\vec{g}$", (phi, 1) * .9, align=N);
+
+    draw(pic, (0,0){vx_0, vy_0} .. (x_mid, y_max) .. {vx_0,vy_f}(x_f,0), blue);
+    fill(pic, (0,0){vx_0, vy_0} .. (x_mid, y_max) .. {vx_0,vy_f}(x_f,0) -- cycle, blue+opacity(.07));
+
+    draw(pic, (0,0) -- .15 * (vx_0, vy_0), arrow = Arrow(SimpleHead), red);
+    label(pic, "$\vec{v}_0$", .15 * (vx_0, vy_0), align=NW, red);
+
+    dot(pic, (x_mid, y_mid), purple);
+    label(pic, "$y_{max} - ?$", (x_mid, y_mid), align=N, purple);
+
+    return shift(x,y)*scale(s)*pic;
+};

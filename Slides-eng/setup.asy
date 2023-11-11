@@ -26,7 +26,7 @@ struct presentation {
     string affiliation;
     string date;
 
-    void title_init () {
+    void add_title() {
         fill(this.canvas,this.cols[0]);
         picture logo = logo((1,15),this.cols[2]);
         size(logo,140,80,IgnoreAspect);
@@ -41,7 +41,19 @@ struct presentation {
         label(this.date, (12,2), align = N, p);
     };
 
-    void slide_init (string header) {
+    void add_text_right (string a) {
+        file text = input(a);
+        string txt = text;
+        label(minipage(txt ,7cm),(8,7.5), align=SE);
+    }
+
+    void add_text_left (string a) {
+        file text = input(a);
+        string txt = text;
+        label(minipage(txt ,7cm),(1,7.5), align=SE);
+    }
+
+    void add_slide (string header) {
         //canvas
         fill(this.canvas,this.cols[0]);
         //header
@@ -60,8 +72,6 @@ struct presentation {
         //end
         this.slide_no += 1;
     };
-
-    
 
 };
 

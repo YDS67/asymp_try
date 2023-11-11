@@ -15,16 +15,14 @@ P.date = "November 2023";
 animation A;
 
 save();
-P.title_init();
+P.add_title();
 A.add();
 restore();
 
 save();
-P.slide_init("First slide title");
+P.add_slide("First slide title");
 
-file text1 = input("text1.txt");
-string txt = text1;
-label(minipage(txt ,7cm),(8,7.5), align=SE);
+P.add_text_right("text1.txt");
 
 frame figure1 = fig1(0.25,0.5).fit();
 add(figure1);
@@ -33,14 +31,22 @@ A.add();
 restore();
 
 save();
-P.slide_init("Second slide title");
+P.add_slide("Second slide title");
 
-file formula1 = input("formula1.txt");
-string txt = formula1;
-label(minipage(txt ,7cm),(1,7.5), align=SE);
+P.add_text_left("formula1.txt");
 
-frame figure1 = fig1(2,0.5).fit();
-add(figure1);
+frame figure2 = fig2(2.2,0.75).fit();
+add(figure2);
+
+A.add();
+restore();
+
+save();
+P.add_slide("Third slide title");
+
+P.add_text_right("formula1.txt");
+
+P.add_text_left("text1.txt");
 
 A.add();
 restore();
@@ -51,7 +57,7 @@ P.affiliation = " ";
 P.date = " ";
 
 save();
-P.title_init();
+P.add_title();
 A.add();
 restore();
 

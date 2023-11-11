@@ -1,3 +1,7 @@
+// This code is sourced from
+// https://asymptote.sourceforge.io/gallery/logo.asy
+// I claim no ownership of it or the logo design
+
 picture logo(pair s=0, pen q)
 {
   picture pic;
