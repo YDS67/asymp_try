@@ -20,27 +20,27 @@ P.add_slide("First slide title");
 
 P.add_text_right("text1.txt");
 
-draw(graphic("trajectory.png", "width=6cm"), (1,7.5), align=SE);
+label(graphic("trajectory.png", "width=6cm"), (1,7.5), align=SE);
 
 // Slide 2
 P.add_slide("Second slide title");
 
 P.add_text_left("formula1.txt");
 
-draw(graphic("distribution.png", "width=7cm"), (8,7.5), align=SE);
+label(graphic("distribution.png", "width=7cm"), (8,7.5), align=SE);
 
 // Slide 3
 P.add_slide("Third slide title");
 
 P.add_text_left("text2.txt");
 
-draw(graphic("wavepacket-0.png", "width=5cm"), (9,7.5), align=SE);
-draw(graphic("wavepacket-1.png", "width=5cm"), (9,4.2), align=SE);
+label(graphic("wavepacket-0.png", "width=5cm"), (9,7.5), align=SE);
+label(graphic("wavepacket-1.png", "width=5cm"), (9,4.2), align=SE);
 
 // Slide 4
 P.add_slide("Fourth slide title");
 
-draw(graphic("spectrum.pdf", "width=8cm"), (1,7.5), align=SE);
+label(graphic("spectrum.pdf", "width=8cm"), (1,7.5), align=SE);
 
 // small width of text
 P.add_text_sright("text3.txt");

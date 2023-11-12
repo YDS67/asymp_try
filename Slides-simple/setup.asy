@@ -41,7 +41,7 @@ struct presentation {
 
     void add_title() {
         fill(this.canvas,this.cols[0]);
-        draw(graphic("logo.pdf", "width=4cm"), (8,8.5), align=S);
+        label(graphic("logo.pdf", "width=4cm"), (8,8.5), align=S);
         pen p = fontsize(22pt)+this.cols[1];
         label(minipage("\centering \textbf{"+this.title+"}", 14cm),(8,7), align = S, p);
         pen p = fontsize(13pt)+this.cols[3];
