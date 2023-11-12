@@ -63,6 +63,17 @@ struct presentation {
         }
     }
 
+    void add_text_wide (string a, real dh = 1) {
+        real h = 0;
+        file text = input(a);
+        while(eof(text) == false) {
+            string txt = text;
+            pen p = fontsize(12pt);
+            label(minipage(txt, 14cm),(1,7.5-h), align=SE, p);
+            h += dh;
+        }
+    }
+
     void add_text_right (string a, real dh = 1) {
         add_text_column(a, 8);
     }
@@ -106,7 +117,7 @@ struct presentation {
         pen p = fontsize(12pt)+this.cols[4];
         label(string(this.slide_no),(16,0), align = N+W, p);
         pen p = fontsize(10pt)+this.cols[4];
-        label(", \copyright ~\textit{"+this.short_author+"}, "+this.short_institution,(0,0), align = N+E, p);
+        label("\copyright ~\textit{"+this.short_author+"}, "+this.short_institution,(0,0), align = N+E, p);
         //end
         this.slide_no += 1;
     };

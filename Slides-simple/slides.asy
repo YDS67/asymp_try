@@ -45,6 +45,10 @@ draw(graphic("spectrum.pdf", "width=8cm"), (1,7.5), align=SE);
 // small width of text
 P.add_text_sright("text3.txt");
 
+// Conclusion
+P.add_slide("Заключение");
+P.add_text_wide("conclusion.txt");
+
 // Final slide
 P.title = "Спасибо за внимание!";
 P.author = P.author + "\\YDSibirmovsky@mephi.ru";
