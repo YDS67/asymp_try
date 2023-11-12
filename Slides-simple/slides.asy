@@ -20,27 +20,30 @@ P.add_slide("First slide title");
 
 P.add_text_right("text1.txt");
 
-label(graphic("trajectory.png", "width=6cm"), (1,7.5), align=SE);
+P.add_img_left("trajectory.png");
 
 // Slide 2
 P.add_slide("Second slide title");
 
 P.add_text_left("formula1.txt");
 
-label(graphic("distribution.png", "width=7cm"), (8,7.5), align=SE);
+// second parameter is width, can be a real number
+P.add_img_right("distribution.png", w=7);
 
 // Slide 3
 P.add_slide("Third slide title");
 
 P.add_text_left("text2.txt");
 
-label(graphic("wavepacket-0.png", "width=5cm"), (9,7.5), align=SE);
-label(graphic("wavepacket-1.png", "width=5cm"), (9,4.2), align=SE);
+// full code to add images in not-standard places
+label(graphic("img/wavepacket-0.png", "width=5cm"), (9,7.5), align=SE);
+label(graphic("img/wavepacket-1.png", "width=5cm"), (9,4.2), align=SE);
 
 // Slide 4
 P.add_slide("Fourth slide title");
 
-label(graphic("spectrum.pdf", "width=8cm"), (1,7.5), align=SE);
+// second parameter is width, can be a real number
+P.add_img_left("spectrum.pdf", 8);
 
 // small width of text
 P.add_text_sright("text3.txt");

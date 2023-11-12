@@ -41,7 +41,7 @@ struct presentation {
 
     void add_title() {
         fill(this.canvas,this.cols[0]);
-        label(graphic("logo.pdf", "width=4cm"), (8,8.5), align=S);
+        label(graphic("img/logo.pdf", "width=4cm"), (8,8.5), align=S);
         pen p = fontsize(22pt)+this.cols[1];
         label(minipage("\centering \textbf{"+this.title+"}", 14cm),(8,7), align = S, p);
         pen p = fontsize(13pt)+this.cols[3];
@@ -54,7 +54,7 @@ struct presentation {
 
     void add_text_column (string a, real x, real dh = 1) {
         real h = 0;
-        file text = input(a);
+        file text = input("text/"+a);
         while(eof(text) == false) {
             string txt = text;
             pen p = fontsize(12pt);
@@ -65,7 +65,7 @@ struct presentation {
 
     void add_text_wide (string a, real dh = 1) {
         real h = 0;
-        file text = input(a);
+        file text = input("text/"+a);
         while(eof(text) == false) {
             string txt = text;
             pen p = fontsize(12pt);
@@ -84,7 +84,7 @@ struct presentation {
 
     void add_text_small (string a, real x, real dh = 1) {
         real h = 0;
-        file text = input(a);
+        file text = input("text/"+a);
         while(eof(text) == false) {
             string txt = text;
             pen p = fontsize(12pt);
@@ -99,6 +99,14 @@ struct presentation {
 
     void add_text_sleft (string a, real dh = 1) {
         add_text_small(a, 1);
+    }
+
+    void add_img_left (string a, real w = 6) {
+        label(graphic("img/"+a, "width="+string(w)+"cm"), (1,7.5), align=SE);
+    }
+
+    void add_img_right (string a, real w = 6) {
+        label(graphic("img/"+a, "width="+string(w)+"cm"), (8,7.5), align=SE);
     }
 
     void add_slide (string header) {
