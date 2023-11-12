@@ -16,11 +16,14 @@ P.fill_short("Электронный транспорт ...", "Ю.Д.Сибир�
 P.add_title();
 
 // Slide 1
-P.add_slide("First slide title");
+P.add_slide("Введение");
 
 P.add_text_right("text1.txt");
 
 P.add_img_left("trajectory.png");
+
+// Section title, page numbers don't increase
+P.add_section("Объект исследования");
 
 // Slide 2
 P.add_slide("Second slide title");
@@ -30,14 +33,14 @@ P.add_text_left("formula1.tex");
 // second parameter is width, can be a real number
 P.add_img_right("distribution.png", w=7);
 
-// Slide 3
-P.add_slide("Third slide title");
+// Slide 3, without the footer, but page number still increases
+P.add_slide("Third slide title",show_foot=false);
 
 P.add_text_left("text2.txt");
 
 // full code to add images in not-standard places
-label(graphic("img/wavepacket-0.png", "width=5cm"), (9,7.5), align=SE);
-label(graphic("img/wavepacket-1.png", "width=5cm"), (9,4.2), align=SE);
+label(graphic("img/wavepacket-0.png", "width=5cm"), (10,7.5), align=SE);
+label(graphic("img/wavepacket-1.png", "width=5cm"), (10,4.2), align=SE);
 
 // Slide 4
 P.add_slide("Fourth slide title");
@@ -49,7 +52,7 @@ P.add_img_left("spectrum.pdf", 8);
 P.add_text_sright("text3.txt");
 
 // Conclusion
-P.add_slide("Заключение");
+P.add_slide("Заключение",show_foot=false);
 P.add_text_wide("conclusion.tex");
 
 // Final slide
@@ -59,4 +62,3 @@ P.institution = "";
 
 newpage();
 P.add_title();
-
