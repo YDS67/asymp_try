@@ -1,0 +1,2 @@
+$$-\frac{\hbar^2}{2m} \Delta \Psi + U(\vec{r}) \Psi = E \Psi $$
+$$\Delta = \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}$$

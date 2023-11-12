@@ -42,6 +42,12 @@ add(figure3);
 
 P.add_text_sright("text3.txt");
 
+P.add_slide("Fifth slide title");
+
+P.add_text_left("text2.txt");
+
+draw(graphic("spectrum.pdf", "width=6cm"), (9,7.5), align=SE);
+
 
 // Final slide
 P.title = "Thank you!";
