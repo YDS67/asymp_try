@@ -25,7 +25,7 @@ P.add_img_left("trajectory.png");
 // Slide 2
 P.add_slide("Second slide title");
 
-P.add_text_left("formula1.txt");
+P.add_text_left("formula1.tex");
 
 // second parameter is width, can be a real number
 P.add_img_right("distribution.png", w=7);
@@ -50,7 +50,7 @@ P.add_text_sright("text3.txt");
 
 // Conclusion
 P.add_slide("Заключение");
-P.add_text_wide("conclusion.txt");
+P.add_text_wide("conclusion.tex");
 
 // Final slide
 P.title = "Спасибо за внимание!";
