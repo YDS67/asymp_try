@@ -12,13 +12,15 @@ struct presentation {
     pen []cols = {
         white,
         darkblue,
-        paleblue,
+        RGB(193,193,232),
         darkgray,
         gray,
     };
 
-    path canvas = (0,0) -- (0,9) -- (16,9) -- (16,0) --cycle;
-    path head = (0,8) -- (0,9) -- (16,9) -- (16,8) --cycle;
+    real head_height = 8.2;
+    path canvas = box((0,0),(16,9));
+    path head = box((0,head_height),(16,9));
+    path head_shadow = box((0,8),(16,head_height));
     path foot = (0,0) -- (0,0.6) -- (16,0.6) -- (16,0) --cycle;
     path footline = (0,0.6) -- (16,0.6);
     int slide_no = 1;
@@ -114,7 +116,9 @@ struct presentation {
         //canvas
         fill(this.canvas,this.cols[0]);
         //header
-        axialshade(this.head,this.cols[2],(0,9),this.cols[0],(0,8));
+        //axialshade(this.head,this.cols[2],(0,9),this.cols[0],(0,8));
+        fill(this.head,this.cols[2]);
+        axialshade(this.head_shadow,black,(0,9),white,(0,8));
         pen p = fontsize(15pt)+this.cols[1];
         label("\textbf{"+header+"}",(8,9), align = S, p);
 
