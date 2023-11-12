@@ -26,7 +26,8 @@ struct presentation {
     int slide_no = 1;
     real frill_r = 0.2;
     real frill_start = 8.4;
-    path frill = (0,9) -- arc((0,frill_start+frill_r),frill_r,-90,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,0) -- cycle;
+    //path frill = (0,9) -- arc((0,frill_start+frill_r),frill_r,-90,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,0) -- cycle;
+    path frill = (0,9) -- (0,frill_start - (sqrt(2)-1)*frill_r) -- arc((0,frill_start+frill_r),frill_r,-45,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,-45) -- ((2+sqrt(2))*frill_r,9) -- cycle;
 
     string title;
     string short_title = title;
