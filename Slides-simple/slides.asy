@@ -51,6 +51,12 @@ P.add_img_left("spectrum.pdf", 8);
 // small width of text
 P.add_text_right("text3.tex", w=6.5);
 
+// Slide 5
+P.add_slide("5th slide title");
+
+P.add_text_left("text1.tex");
+P.add_text_right("text1.tex");
+
 // Conclusion
 P.add_slide("Заключение",show_foot=false);
 P.add_text_wide("conclusion.tex");
