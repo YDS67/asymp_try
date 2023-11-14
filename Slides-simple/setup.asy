@@ -77,13 +77,13 @@ struct presentation {
         
     }
 
-    void add_text_column (string a, real x, real dh = 1) {
+    void add_text_column (string a, real x, real w = 7.1, real dh = 1) {
         real h = 0;
         file text = input("text/"+a);
         while(eof(text) == false) {
             string txt = text;
             pen p = fontsize(12pt);
-            label(minipage(txt, 7cm),(x,7.5-h), align=SE, p);
+            label(minipage(txt, width = w*cm),(x,7.8-h), align=SE, p);
             h += dh;
         }
     }
@@ -94,44 +94,25 @@ struct presentation {
         while(eof(text) == false) {
             string txt = text;
             pen p = fontsize(12pt);
-            label(minipage(txt, 14cm),(1,7.5-h), align=SE, p);
+            label(minipage(txt, 14.8cm),(0.6,7.8-h), align=SE, p);
             h += dh;
         }
     }
 
-    void add_text_right (string a, real dh = 1) {
-        add_text_column(a, 8);
+    void add_text_right (string a, real w = 7.1, real dh = 1) {
+        add_text_column(a, x=8.3+7.1-w, w=w);
     }
 
-    void add_text_left (string a, real dh = 1) {
-        add_text_column(a, 1);
+    void add_text_left (string a, real w = 7.1, real dh = 1) {
+        add_text_column(a, x=0.6, w=w);
     }
 
-    void add_text_small (string a, real x, real dh = 1) {
-        real h = 0;
-        file text = input("text/"+a);
-        while(eof(text) == false) {
-            string txt = text;
-            pen p = fontsize(12pt);
-            label(minipage(txt, 5cm),(x,7.5-h), align=SE, p);
-            h += dh;
-        }
+    void add_img_left (string a, real w = 7.1) {
+        label(graphic("img/"+a, "width="+string(w)+"cm"), (0.6,7.8), align=SE);
     }
 
-    void add_text_sright (string a, real dh = 1) {
-        add_text_small(a, 10);
-    }
-
-    void add_text_sleft (string a, real dh = 1) {
-        add_text_small(a, 1);
-    }
-
-    void add_img_left (string a, real w = 6) {
-        label(graphic("img/"+a, "width="+string(w)+"cm"), (1,7.5), align=SE);
-    }
-
-    void add_img_right (string a, real w = 6) {
-        label(graphic("img/"+a, "width="+string(w)+"cm"), (8,7.5), align=SE);
+    void add_img_right (string a, real w = 7.1) {
+        label(graphic("img/"+a, "width="+string(w)+"cm"), (8.3-w+7.1,7.8), align=SE);
     }
 
     void add_background (string a) {
