@@ -118,6 +118,7 @@ struct presentation {
     }
 
     void add_text_column (string a, real x, real w = 7.1, real dh = 1) {
+        if(this.slides>1){
         real h = 0;
         file text = input("text/"+a);
         while(eof(text) == false) {
@@ -126,9 +127,11 @@ struct presentation {
             label(minipage(txt, width = w*cm),(x,7.8-h), align=SE, p);
             h += dh;
         }
+        };
     }
 
     void add_text_wide (string a, real dh = 1) {
+        if(this.slides>1){
         real h = 0;
         file text = input("text/"+a);
         while(eof(text) == false) {
@@ -137,9 +140,11 @@ struct presentation {
             label(minipage(txt, 14.8cm),(0.6,7.8-h), align=SE, p);
             h += dh;
         }
+        };
     }
 
     void add_text_important (string a) {
+        if(this.slides>1){
         pen p1 = this.cols[5];
         pen p2 = this.cols[6]+linewidth(1);
         file text = input("text/"+a);
@@ -151,6 +156,7 @@ struct presentation {
         roundbox1(fr,xmargin=0.5cm,Fill(p1));
         roundbox1(fr,Draw(p2));
         add(fr,(8,4.5));
+        };
     }
 
     void add_text_right (string a, real w = 7.1, real dh = 1) {
@@ -162,11 +168,15 @@ struct presentation {
     }
 
     void add_img_left (string a, real w = 7.1) {
+        if(this.slides>1){
         label(graphic("img/"+a, "width="+string(w)+"cm"), (0.6,7.8), align=SE);
+        };
     }
 
     void add_img_right (string a, real w = 7.1) {
+        if(this.slides>1){
         label(graphic("img/"+a, "width="+string(w)+"cm"), (8.3-w+7.1,7.8), align=SE);
+        };
     }
 
     void add_background (string a) {
@@ -211,10 +221,10 @@ struct presentation {
         //layer();
         if(this.slides>1){
             newpage();
-        };
+        
         //canvas
         fill(this.canvas,this.cols[0]);
-
+        };
         this.slide_no += 1;
     };
 
