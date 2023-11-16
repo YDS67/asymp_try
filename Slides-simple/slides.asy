@@ -57,13 +57,18 @@ P.add_slide("5th slide title");
 P.add_text_left("text1.tex");
 P.add_text_right("text1.tex");
 
+// Slide 6
+P.add_slide("5th slide title");
+
+P.add_text_important("text1.tex");
+
 // Conclusion
 P.add_slide("Заключение",show_foot=false);
 P.add_text_wide("conclusion.tex");
 
 // Final slide
 P.title = "Спасибо за внимание!";
-P.author = P.author + "\\YDSibirmovsky@mephi.ru";
+P.author = "YDSibirmovsky@mephi.ru";
 P.institution = "";
 
 newpage();

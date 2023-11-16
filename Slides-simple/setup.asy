@@ -1,11 +1,9 @@
 void preamble() {
-
     texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
     defaultpen(font("T2A","cmr","m","n"));
     unitsize(1cm);
     settings.outformat = "pdf";
     settings.tex = "pdflatex";
-
 };
 
 struct presentation {
@@ -53,11 +51,19 @@ struct presentation {
     }
 
     void add_title() {
+        import roundedpath;
         fill(this.canvas,this.cols[0]);
-        draw_frill();
+        //draw_frill();
         label(graphic("img/logo.pdf", "width=4cm"), (8,8.5), align=S);
-        pen p = fontsize(22pt)+this.cols[1];
-        label(minipage("\centering \textbf{"+this.title+"}", 14cm),(8,5.5), p);
+        pen p = fontsize(18pt)+this.cols[1];
+        pen p1 = RGB(233,233,243);
+        pen p2 = RGB(38,38,134)+linewidth(1);
+        path box1 = box((1,4),(15,7));
+        Label tl = minipage("\centering \textbf{"+this.title+"}", 14cm);
+        box1 = roundedpath(box1,0.25);
+        fill(box1,p1);
+        draw(box1,p2);
+        label(tl,(8,5.5), p);
         pen p = fontsize(13pt)+this.cols[3];
         label(minipage("\centering \textit{"+this.author+"}", 14cm),(8,3.3), p);
         pen p = fontsize(13pt)+this.cols[3];
@@ -97,6 +103,27 @@ struct presentation {
             label(minipage(txt, 14.8cm),(0.6,7.8-h), align=SE, p);
             h += dh;
         }
+    }
+
+    void add_text_important (string a, real dh = 1) {
+        import roundedpath;
+        pen p1 = RGB(233,233,243);
+        pen p2 = RGB(38,38,134)+linewidth(1);
+        void draw_box(real h) {
+            path box1 = box((0.6,7.8-2*h),(15.4,7.8));
+            box1 = roundedpath(box1,0.25);
+            fill(box1,p1);
+            draw(box1,p2);
+        }
+        real h = 0;
+        file text = input("text/"+a);
+        while(eof(text) == false) {
+            string txt = text;
+            pen p = fontsize(12pt);
+            label(minipage(txt, 14cm),(1,7.8-h), align=SE, p);
+            h += dh;
+        }
+        draw_box(h);
     }
 
     void add_text_right (string a, real w = 7.1, real dh = 1) {
