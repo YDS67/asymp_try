@@ -1,5 +1,7 @@
 import setup;
 
+int main(int slides=1) {
+
 // Initial settings
 preamble();
 presentation P;
@@ -9,6 +11,7 @@ P.title = "Квантовое моделирование транспорта к
 P.author = "\textbf{Ю.Д. Сибирмовский}, к.ф.-м.н., доцент \\ соавторы: ...";
 P.institution = "Национальный исследовательский ядерный университет <<МИФИ>>,\\Институт нанотехнологий в электронике, спинтронике и фотонике";
 P.date = "Москва, Ноябрь 2023";
+P.slides = slides-1;
 
 P.fill_short("Электронный транспорт ...", "Ю.Д.Сибирмовский", "ИНТЭЛ НИЯУ МИФИ");
 
@@ -63,7 +66,7 @@ P.add_slide("5th slide title");
 P.add_text_important("text1.tex");
 
 // Conclusion
-P.add_slide("Заключение",show_foot=false);
+P.add_slide("Заключение");
 P.add_text_wide("conclusion.tex");
 
 // Final slide
@@ -71,5 +74,13 @@ P.title = "Спасибо за внимание!";
 P.author = "YDSibirmovsky@mephi.ru";
 P.institution = "";
 
-newpage();
+if(P.slides>1){
+    newpage();
+};
 P.add_title();
+
+return P.slide_no;
+
+}
+
+main(main());

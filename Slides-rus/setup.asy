@@ -36,6 +36,8 @@ struct presentation {
         RGB(193,193,232),
         darkgray,
         gray,
+        RGB(233,233,243),
+        RGB(38,38,134)
     };
 
     real head_height = 8.2;
@@ -45,6 +47,7 @@ struct presentation {
     path foot = (0,0) -- (0,0.6) -- (16,0.6) -- (16,0) --cycle;
     path footline = (0,0.6) -- (16,0.6);
     int slide_no = 1;
+    int slides = 1;
     real frill_r = 0.2;
     real frill_start = 8.4;
     path frill = (0,9) -- arc((0,frill_start+frill_r),frill_r,-90,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,0) -- cycle;
@@ -75,12 +78,14 @@ struct presentation {
 
     void add_title() {
         import roundedpath;
+        if(this.slides>1){
+            layer();
         fill(this.canvas,this.cols[0]);
         //draw_frill();
         label(graphic("img/logo.pdf", "width=4cm"), (8,8.5), align=S);
         
-        pen p1 = RGB(233,233,243);
-        pen p2 = RGB(38,38,134)+linewidth(1);
+        pen p1 = this.cols[5];
+        pen p2 = this.cols[6]+linewidth(1);
         string txt = "\centering \textbf{"+this.title+"}";
         pen p = fontsize(18pt)+this.cols[1];
         picture pic;
@@ -96,17 +101,20 @@ struct presentation {
         label(minipage("\centering "+this.institution, 14cm), (8,2), p);
         pen p = fontsize(13pt)+this.cols[3];
         label(this.date, (8,1), align = S, p);
+        };
     }
 
     void add_section(string title) {
-        newpage();
+        if(this.slides>1){
+            //layer();
+            newpage();
         //canvas
         fill(this.canvas,this.cols[0]);
         draw_frill();
 
         pen p = fontsize(20pt)+this.cols[1];
         label(minipage("\centering \textbf{"+title+"}", 14cm),(8,5), p);
-        
+        };
     }
 
     void add_text_column (string a, real x, real w = 7.1, real dh = 1) {
@@ -132,8 +140,8 @@ struct presentation {
     }
 
     void add_text_important (string a) {
-        pen p1 = RGB(233,233,243);
-        pen p2 = RGB(38,38,134)+linewidth(1);
+        pen p1 = this.cols[5];
+        pen p2 = this.cols[6]+linewidth(1);
         file text = input("text/"+a);
         string txt = text;
         pen p = fontsize(12pt);
@@ -163,11 +171,13 @@ struct presentation {
 
     void add_background (string a) {
         label(graphic("img/"+a, "width=15.9cm, height=8.9cm"),(8,4.5));
-        layer();
+        //layer();
     }
 
     void add_slide (string header="", bool show_head=true, bool show_foot=true) {
-        newpage();
+        if(this.slides>1){
+            //layer();
+            newpage();
         //canvas
         fill(this.canvas,this.cols[0]);
 
@@ -182,21 +192,26 @@ struct presentation {
         
         //footer
         if(show_foot) {
-            fill(this.foot,this.cols[0]);
+            real fw = 16*this.slide_no/(this.slides);
+            path foot = (0,0) -- (0,0.6) -- (fw,0.6) -- (fw,0) --cycle;
+            fill(foot,this.cols[5]);
             draw(this.footline,this.cols[2]+dotted);
 
             pen p = fontsize(12pt)+this.cols[4];
-            label(string(this.slide_no),(15.9,0), align = N+W, p);
+            label(string(this.slide_no)+"/"+string(this.slides),(15.9,0), align = N+W, p);
             pen p = fontsize(10pt)+this.cols[4];
             label("\copyright ~\textit{"+this.short_author+"}, "+this.short_institution,(0.1,0), align = N+E, p);
         //end
         }
-
+        };
         this.slide_no += 1;
     };
 
     void add_slide_empty() {
-        newpage();
+        //layer();
+        if(this.slides>1){
+            newpage();
+        };
         //canvas
         fill(this.canvas,this.cols[0]);
 
