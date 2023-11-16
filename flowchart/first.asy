@@ -3,7 +3,6 @@ import flowchart;
 
 texpreamble("\usepackage{bm}");
 settings.render = 16;
-settings.outformat = "pdf";
 defaultpen(fontsize(7pt)+NewCenturySchoolBook()+linewidth(0.3));
 unitsize(5cm);
 

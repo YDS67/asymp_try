@@ -1,64 +1,75 @@
-import animation;
 import setup;
-import logo;
-import figures;
 
+// Initial settings
 preamble();
-
 presentation P;
 
-P.title = "Название презентации";
-P.author = "Автор";
-P.affiliation = "Организация";
-P.date = "Ноябрь 2023";
+// General information
+P.title = "Квантовое моделирование транспорта квазидвумерных электронов в слое наноструктур";
+P.author = "\textbf{Ю.Д. Сибирмовский}, к.ф.-м.н., доцент \\ соавторы: ...";
+P.institution = "Национальный исследовательский ядерный университет <<МИФИ>>,\\Институт нанотехнологий в электронике, спинтронике и фотонике";
+P.date = "Москва, Ноябрь 2023";
 
-animation A;
+P.fill_short("Электронный транспорт ...", "Ю.Д.Сибирмовский", "ИНТЭЛ НИЯУ МИФИ");
 
-save();
+// Main title slide
 P.add_title();
-A.add();
-restore();
 
-save();
-P.add_slide("Заголовок первого слайда");
+// Slide 1
+P.add_slide("Введение");
 
-P.add_text_right("text1.txt");
+P.add_text_right("text1.tex");
 
-frame figure1 = align(fig1().fit(),(1.25cm,1.5cm));
-add(figure1);
+P.add_img_left("trajectory.png",6.5);
 
-A.add();
-restore();
+// Section title, page numbers don't increase
+P.add_section("Объект исследования");
 
-save();
-P.add_slide("Заголовок второго слайда");
+// Slide 2
+P.add_slide("Second slide title");
 
-P.add_text_left("formula1.txt");
+P.add_text_left("formula1.tex", w=5);
 
-frame figure2 = align(fig2().fit(),(8.5cm,4cm));
-add(figure2);
+// second parameter is width, can be a real number
+P.add_img_right("distribution.png", w=9);
 
-A.add();
-restore();
+// Slide 3, without the footer, but page number still increases
+P.add_slide("Third slide title",show_foot=false);
 
-save();
-P.add_slide("Заголовок третьего слайда");
+P.add_text_left("text2.tex");
 
-P.add_text_left("text2.txt");
+// full code to add images in not-standard places
+label(graphic("img/wavepacket-0.png", "width=6cm"), (9,7.8), align=SE);
+label(graphic("img/wavepacket-1.png", "width=6cm"), (9,4), align=SE);
 
-draw(graphic("wavepacket.png", "width=6cm"), (9,7.5), align=SE);
+// Slide 4
+P.add_slide("Fourth slide title");
 
-A.add();
-restore();
+// second parameter is width, can be a real number
+P.add_img_left("spectrum.pdf", 8);
 
+// small width of text
+P.add_text_right("text3.tex", w=6.5);
+
+// Slide 5
+P.add_slide("5th slide title");
+
+P.add_text_left("text1.tex");
+P.add_text_right("text1.tex");
+
+// Slide 6
+P.add_slide("5th slide title");
+
+P.add_text_important("text1.tex");
+
+// Conclusion
+P.add_slide("Заключение",show_foot=false);
+P.add_text_wide("conclusion.tex");
+
+// Final slide
 P.title = "Спасибо за внимание!";
-P.author = "111@111.com";
-P.affiliation = " ";
-P.date = " ";
+P.author = "YDSibirmovsky@mephi.ru";
+P.institution = "";
 
-save();
+newpage();
 P.add_title();
-A.add();
-restore();
-
-A.movie();
