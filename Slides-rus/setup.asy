@@ -41,11 +41,12 @@ struct presentation {
     };
 
     real head_height = 8.2;
+    real foot_height = 0.5;
     path canvas = box((0,0),(16,9));
     path head = box((0,head_height),(16,9));
     path head_shadow = box((0,8),(16,head_height));
-    path foot = (0,0) -- (0,0.6) -- (16,0.6) -- (16,0) --cycle;
-    path footline = (0,0.6) -- (16,0.6);
+    path foot = (0,0) -- (0,foot_height) -- (16,foot_height) -- (16,0) --cycle;
+    path footline = (0,foot_height) -- (16,foot_height);
     int slide_no = 1;
     int slides = 1;
     real frill_r = 0.2;
@@ -203,13 +204,15 @@ struct presentation {
         //footer
         if(show_foot) {
             real fw = 16*this.slide_no/(this.slides);
-            path foot = (0,0) -- (0,0.6) -- (fw,0.6) -- (fw,0) --cycle;
-            fill(foot,this.cols[5]);
+            path foot2 = (0,0) -- (0,this.foot_height) -- (fw,this.foot_height) -- (fw,0) --cycle;
+            fill(foot,this.cols[0]);
+            fill(foot2,this.cols[5]);
             draw(this.footline,this.cols[2]+dotted);
 
-            pen p = fontsize(12pt)+this.cols[4];
+            pen p = fontsize(9pt)+this.cols[4];
             label(string(this.slide_no)+"/"+string(this.slides),(15.9,0), align = N+W, p);
-            pen p = fontsize(10pt)+this.cols[4];
+            
+            pen p = fontsize(9pt)+this.cols[4];
             label("\copyright ~\textit{"+this.short_author+"}, "+this.short_institution,(0.1,0), align = N+E, p);
         //end
         }
