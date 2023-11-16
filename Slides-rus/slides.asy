@@ -35,7 +35,7 @@ P.add_slide("Second slide title");
 P.add_text_left("formula1.tex", w=5);
 
 // second parameter is width, can be a real number
-P.add_img_right("distribution.png", w=9);
+P.add_img_right("distribution.pdf", w=9);
 
 // Slide 3, without the footer, but page number still increases
 P.add_slide("Third slide title",show_foot=false);
