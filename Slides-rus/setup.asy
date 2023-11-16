@@ -32,7 +32,7 @@ path roundbox1(frame dest, frame src=dest, real xmargin=0, real ymargin=xmargin,
 struct presentation {
     pen []cols = {
         white,
-        darkblue,
+        RGB(38,38,134),
         RGB(193,193,232),
         darkgray,
         gray,

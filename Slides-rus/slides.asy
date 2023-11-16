@@ -1,9 +1,10 @@
 import setup;
 
-int main(int slides=1) {
-
 // Initial settings
 preamble();
+
+int main(int slides=1) {
+
 presentation P;
 
 // General information
