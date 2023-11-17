@@ -36,8 +36,61 @@ struct presentation {
         RGB(193,193,232),
         darkgray,
         gray,
-        RGB(233,233,243),
-        RGB(38,38,134)
+        RGB(233,233,243)
+    };
+
+    pen []cols1 = {
+        white,
+        RGB(38,38,134),
+        RGB(193,193,232),
+        darkgray,
+        gray,
+        RGB(233,233,243)
+    };
+
+    pen []cols2 = {
+        white,
+        RGB(41,75,102),
+        RGB(73,130,174),
+        darkgray,
+        gray,
+        RGB(224,232,238)
+    };
+
+    pen []cols3 = {
+        white,
+        RGB(4,36,56),
+        RGB(74,127,118),
+        darkgray,
+        gray,
+        RGB(218,214,185)
+    };
+
+    pen []cols4 = {
+        white,
+        rgb("0B032D"),
+        rgb("9A7787"),
+        darkgray,
+        gray,
+        rgb("FED7BF")
+    };
+
+    pen []cols5 = {
+        white,
+        RGB(0,96,0),
+        RGB(204,229,204),
+        darkgray,
+        gray,
+        RGB(230,242,230)
+    };
+
+    pen []cols6 = {
+        white,
+        RGB(128,64,0),
+        RGB(252,187,6),
+        darkgray,
+        gray,
+        RGB(254,238,193)
     };
 
     real head_height = 8.2;
@@ -86,7 +139,7 @@ struct presentation {
         label(graphic("img/logo.pdf", "width=4cm"), (8,8.5), align=S);
         
         pen p1 = this.cols[5];
-        pen p2 = this.cols[6]+linewidth(1);
+        pen p2 = this.cols[1]+linewidth(1);
         string txt = "\centering \textbf{"+this.title+"}";
         pen p = fontsize(18pt)+this.cols[1];
         picture pic;
@@ -147,7 +200,7 @@ struct presentation {
     void add_text_important (string a, real x=0, real y=0) {
         if(this.slides>1){
         pen p1 = this.cols[5];
-        pen p2 = this.cols[6]+linewidth(1);
+        pen p2 = this.cols[1]+linewidth(1);
         file text = input("text/"+a);
         string txt = text;
         pen p = fontsize(12pt);
@@ -197,7 +250,7 @@ struct presentation {
             //axialshade(this.head,this.cols[2],(0,9),this.cols[0],(0,8));
             fill(this.head,this.cols[2]);
             axialshade(this.head_shadow,black,(0,9),white,(0,8));
-            pen p = fontsize(15pt)+this.cols[1];
+            pen p = fontsize(15pt)+this.cols[0];
             label("\textbf{"+header+"}",(8,9), align = S, p);
         }
         
@@ -209,10 +262,10 @@ struct presentation {
             fill(foot2,this.cols[5]);
             draw(this.footline,this.cols[2]+dotted);
 
-            pen p = fontsize(9pt)+this.cols[4];
+            pen p = fontsize(9pt)+this.cols[1];
             label(string(this.slide_no)+"/"+string(this.slides),(15.9,0), align = N+W, p);
             
-            pen p = fontsize(9pt)+this.cols[4];
+            pen p = fontsize(9pt)+this.cols[1];
             label("\copyright ~\textit{"+this.short_author+"}, "+this.short_institution,(0.1,0), align = N+E, p);
         //end
         }
