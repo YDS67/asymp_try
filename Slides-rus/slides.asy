@@ -76,6 +76,11 @@ P.add_slide("7th slide title");
 
 P.add_text_important("text1.tex");
 
+// Slide 8
+P.add_slide("7th slide title");
+
+P.add_listing("listing1", 8, -3);
+
 // Conclusion
 P.add_slide("Заключение");
 P.add_text_wide("conclusion.tex");

@@ -1,5 +1,6 @@
 void preamble() {
-    texpreamble("\usepackage{mathtext} \usepackage[russian]{babel}");
+    texpreamble("\usepackage{mathtext}
+    \usepackage[russian]{babel}");
     defaultpen(font("T2A","cmr","m","n"));
     unitsize(1cm);
     settings.outformat = "pdf";
@@ -236,9 +237,16 @@ struct presentation {
         };
     }
 
-    void add_background (string a) {
-        label(graphic("img/"+a, "width=15.9cm, height=8.9cm"),(8,4.5));
-        //layer();
+    void add_img (string a, real w = 7.1, real x=0, real y=0) {
+        if(this.slides>1){
+        label(graphic("img/"+a, "width="+string(w)+"cm"), (8+x,4.5+y));
+        };
+    }
+
+    void add_listing (string a, real w = 7.1, real x=0, real y=0) {
+        if(this.slides>1){
+        label(graphic("listings/"+a+".pdf", "width="+string(w)+"cm"), (8+x,4.5+y));
+        };
     }
 
     void add_slide (string header="", bool show_head=true, bool show_foot=true) {

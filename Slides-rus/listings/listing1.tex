@@ -1,0 +1,27 @@
+\documentclass[]{standalone}
+
+\input{code.tex}
+
+\begin{document}
+\begin{lstlisting}[language=rust]
+    // From the pendulum program
+    fn runge_kutta(
+        vars: &MyVec,
+        pars: &Vec<f64>,
+        rhs: &dyn Fn(&MyVec, &Vec<f64>) -> MyVec,
+        dt: f64,
+    ) -> MyVec {
+        let rk_1 = rhs(vars, pars);
+        let rk_2 = rhs(&vars.add(&rk_1.scale(dt / 2.0)), pars);
+        let rk_3 = rhs(&vars.add(&rk_2.scale(dt / 2.0)), pars);
+        let rk_4 = rhs(&vars.add(&rk_3.scale(dt)), pars);
+    
+        let vars_new = vars
+            .add(&rk_1.scale(dt / 6.0))
+            .add(&rk_2.scale(dt / 3.0))
+            .add(&rk_3.scale(dt / 3.0))
+            .add(&rk_4.scale(dt / 6.0));
+        vars_new
+    }
+\end{lstlisting}
+\end{document}
