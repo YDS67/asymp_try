@@ -14,8 +14,8 @@ P.institution = "Национальный исследовательский я�
 P.date = "\today";
 P.slides = slides-1; // do not remove this line
 // color scheme
-P.cols = P.cols3;
-P.logo = "img/logo3.pdf";
+P.cols = P.cols2;
+P.logo = "img/logo2.pdf";
 
 P.fill_short("Электронный транспорт ...", "Ю.Д.Сибирмовский", "ИНТЭЛ НИЯУ МИФИ");
 
