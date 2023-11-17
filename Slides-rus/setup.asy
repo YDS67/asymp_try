@@ -1,5 +1,5 @@
 void preamble() {
-    texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
+    texpreamble("\usepackage{mathtext} \usepackage[russian]{babel}");
     defaultpen(font("T2A","cmr","m","n"));
     unitsize(1cm);
     settings.outformat = "pdf";
@@ -15,7 +15,7 @@ path roundbox1(frame dest, frame src=dest, real xmargin=0, real ymargin=xmargin,
   real a=bound.x+2*xmargin;
   real b=bound.y+2*ymargin;
   real ds=0;
-  real dw=a*0.017;
+  real dw=0.25cm;
   path g=shift(m-(xmargin,ymargin))*((0,dw)--(0,b-dw){up}..{right}
   (dw,b)--(a-dw,b){right}..{down}
   (a,b-dw)--(a,dw){down}..{left}
@@ -144,7 +144,7 @@ struct presentation {
         };
     }
 
-    void add_text_important (string a) {
+    void add_text_important (string a, real x=0, real y=0) {
         if(this.slides>1){
         pen p1 = this.cols[5];
         pen p2 = this.cols[6]+linewidth(1);
@@ -152,11 +152,11 @@ struct presentation {
         string txt = text;
         pen p = fontsize(12pt);
         picture pic;
-        label(pic, minipage(txt, 14cm),p);
+        label(pic, minipage(txt, (14-2*abs(x))*cm),p);
         frame fr = pic.fit();
         roundbox1(fr,xmargin=0.5cm,Fill(p1));
         roundbox1(fr,Draw(p2));
-        add(fr,(8,4.5));
+        add(fr,(8+x,4.5+y));
         };
     }
 

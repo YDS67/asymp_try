@@ -11,7 +11,7 @@ presentation P;
 P.title = "Квантовое моделирование транспорта квазидвумерных электронов в слое наноструктур";
 P.author = "\textbf{Ю.Д. Сибирмовский}, к.ф.-м.н., доцент \\ соавторы: ...";
 P.institution = "Национальный исследовательский ядерный университет <<МИФИ>>,\\Институт нанотехнологий в электронике, спинтронике и фотонике";
-P.date = "Москва, Ноябрь 2023";
+P.date = "\today";
 P.slides = slides-1;
 
 P.fill_short("Электронный транспорт ...", "Ю.Д.Сибирмовский", "ИНТЭЛ НИЯУ МИФИ");
@@ -62,7 +62,14 @@ P.add_text_left("text1.tex");
 P.add_text_right("text1.tex");
 
 // Slide 6
-P.add_slide("5th slide title");
+P.add_slide("6th slide title");
+
+P.add_text_important("text3.tex",5,-1);
+
+P.add_text_important("text3.tex",-5,1);
+
+// Slide 7
+P.add_slide("7th slide title");
 
 P.add_text_important("text1.tex");
 
