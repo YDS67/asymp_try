@@ -32,11 +32,11 @@ path roundbox1(frame dest, frame src=dest, real xmargin=0, real ymargin=xmargin,
 struct presentation {
     pen []cols = {
         white,
-        RGB(38,38,134),
-        RGB(193,193,232),
+        RGB(41,75,102),
+        RGB(73,130,174),
         darkgray,
         gray,
-        RGB(233,233,243)
+        RGB(224,232,238)
     };
 
     pen []cols1 = {
@@ -93,6 +93,8 @@ struct presentation {
         RGB(254,238,193)
     };
 
+    string logo = "img/logo2.pdf";
+
     real head_height = 8.2;
     real foot_height = 0.5;
     path canvas = box((0,0),(16,9));
@@ -105,8 +107,7 @@ struct presentation {
     real frill_r = 0.2;
     real frill_start = 8.4;
     path frill = (0,9) -- arc((0,frill_start+frill_r),frill_r,-90,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,0) -- cycle;
-    //path frill = (0,9) -- (0,frill_start - (sqrt(2)-1)*frill_r) -- arc((0,frill_start+frill_r),frill_r,-45,0) -- arc((2*frill_r,frill_start+frill_r),frill_r,180,90) -- arc((2*frill_r,frill_start+3*frill_r),frill_r,-90,-45) -- ((2+sqrt(2))*frill_r,9) -- cycle;
-
+    
     string title;
     string short_title = title;
     string author;
@@ -135,9 +136,10 @@ struct presentation {
         if(this.slides>1){
             layer();
         fill(this.canvas,this.cols[0]);
-        //draw_frill();
-        label(graphic("img/logo.pdf", "width=4cm"), (8,8.5), align=S);
         
+        pen p = fontsize(12pt)+this.cols[3];
+        label(minipage("\centering "+this.institution, 14cm), (8,7.8), p);
+
         pen p1 = this.cols[5];
         pen p2 = this.cols[1]+linewidth(1);
         string txt = "\centering \textbf{"+this.title+"}";
@@ -149,11 +151,12 @@ struct presentation {
         roundbox1(fr,Draw(p2));
         add(fr,(8,5.5));
 
-        pen p = fontsize(13pt)+this.cols[3];
-        label(minipage("\centering \textit{"+this.author+"}", 14cm),(8,3.3), p);
-        pen p = fontsize(13pt)+this.cols[3];
-        label(minipage("\centering "+this.institution, 14cm), (8,2), p);
-        pen p = fontsize(13pt)+this.cols[3];
+        label(graphic(this.logo, "width=4cm"), (3.5,2.5));
+
+        pen p = fontsize(12pt)+this.cols[3];
+        label(minipage("\textit{"+this.author+"}", 8cm),(10.5,2.5), p);
+        
+        pen p = fontsize(12pt)+this.cols[3];
         label(this.date, (8,1), align = S, p);
         };
     }
