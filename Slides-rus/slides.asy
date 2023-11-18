@@ -69,7 +69,7 @@ P.add_slide("6th slide title");
 
 P.add_text_important("text3.tex",5,-1);
 
-P.add_text_important("text3.tex",-5,1);
+P.add_text_important("text3.tex",-3,1);
 
 // Slide 7
 P.add_slide("7th slide title");
