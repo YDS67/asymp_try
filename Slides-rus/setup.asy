@@ -117,6 +117,34 @@ struct presentation {
     string short_institution = institution;
     string date;
 
+    void col_select(int n=1) {
+        if(n == 1) {
+            this.cols = this.cols1;
+            this.logo = "img/logo1.pdf";
+        }
+        if(n == 2) {
+            this.cols = this.cols2;
+            this.logo = "img/logo2.pdf";
+        }
+        if(n == 3) {
+            this.cols = this.cols3;
+            this.logo = "img/logo3.pdf";
+        }
+        if(n == 4) {
+            this.cols = this.cols4;
+            this.logo = "img/logo4.pdf";
+        }
+        if(n == 5) {
+            this.cols = this.cols5;
+            this.logo = "img/logo.pdf";
+        }
+        if(n == 6) {
+            this.cols = this.cols6;
+            this.logo = "img/logo.pdf";
+        }
+    }
+
+
     void fill_short(string title = this.title, 
         string author = this.author, 
         string institution = this.institution) {
