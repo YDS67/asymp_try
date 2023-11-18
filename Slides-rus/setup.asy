@@ -1,6 +1,6 @@
 void preamble() {
     texpreamble("\usepackage{mathtext}
-    \usepackage[russian]{babel}");
+    \usepackage[russian]{babel} \usepackage{enumitem} \setlist[itemize]{leftmargin=*}");
     defaultpen(font("T2A","cmr","m","n"));
     unitsize(1cm);
     settings.outformat = "pdf";
@@ -79,7 +79,7 @@ struct presentation {
     pen []cols5 = {
         white,
         RGB(0,96,0),
-        RGB(204,229,204),
+        RGB(20,96,45),
         darkgray,
         gray,
         RGB(230,242,230)
@@ -88,7 +88,7 @@ struct presentation {
     pen []cols6 = {
         white,
         RGB(128,64,0),
-        RGB(252,187,6),
+        RGB(98,64,30),
         darkgray,
         gray,
         RGB(254,238,193)
