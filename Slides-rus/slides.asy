@@ -65,10 +65,11 @@ P.add_text_right("text1.tex");
 
 // Slide 6
 P.add_slide("6th slide title");
-
+P.col_select(2);
 P.add_text_important("text3.tex",5,-1);
-
+P.col_select(5);
 P.add_text_important("text3.tex",-3,1);
+P.col_select(3);
 
 // Slide 7
 P.add_slide("7th slide title");
