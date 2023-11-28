@@ -31,13 +31,13 @@ path area2 = (t1,0) -- a -- c -- (t2,0) -- cycle;
 
 fill(area, blue+opacity(0.2));
 fill(area2, red+opacity(0.2));
-fill(area1, purple+opacity(0.2));
+//fill(area1, purple+opacity(0.2));
 draw(functia, heavyblue);
 draw(a -- (t1,0), dashed);
 label("$t_k$", (t1,0), align=S);
 draw(c -- (t2,0), dashed);
 label("$t_{k+1}$", (t2,0), align=S);
-draw(b -- (t12,0), dashed+red);
+//draw(b -- (t12,0), dashed+red);
 label("$t_{k+1/2}$", (t12,0), align=S);
 draw(a -- (0,y1), dotted);
 label("$f_k$", (0,y1), align=W);

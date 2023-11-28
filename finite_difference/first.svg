@@ -78,9 +78,6 @@
 <path d='M 60.31 163.069L 60.31 120.39L 216.8 49.2578L 216.8 163.069L 60.31 163.069Z' fill='#ff0000' opacity='0.2'/>
 </g>
 <g transform='matrix(0.996264 0 0 0.996264 88.1477 216.318)'>
-<path d='M 60.31 163.069L 60.31 120.39L 216.8 120.39L 216.8 163.069L 60.31 163.069Z' fill='#8000ff' opacity='0.2'/>
-</g>
-<g transform='matrix(0.996264 0 0 0.996264 88.1477 216.318)'>
 <path d='M 60.31 120.39C 81.2941 95.2528 108.176 75.7026 138.555 63.4842C 163.404 53.4903 190.024 48.6502 216.8 49.2578' fill='none' stroke='#0000c0' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='0.501875'/>
 </g>
 <g transform='matrix(0.996264 0 0 0.996264 88.1477 216.318)'>
@@ -95,9 +92,6 @@
 <use x='298.44604' y='389.32847' xlink:href='#g2-107'/>
 <use x='302.849694' y='389.32847' xlink:href='#g3-43'/>
 <use x='308.965678' y='389.32847' xlink:href='#g3-49'/>
-<g transform='matrix(0.996264 0 0 0.996264 88.1477 216.318)'>
-<path d='M 138.555 63.4842L 138.555 163.069' fill='none' stroke='#ff0000' stroke-dasharray='3.98339,3.98339' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10.0375' stroke-width='0.501875'/>
-</g>
 <use x='212.869069' y='387.834059' xlink:href='#g1-116'/>
 <use x='216.466704' y='389.632886' xlink:href='#g2-107'/>
 <use x='220.870358' y='389.632886' xlink:href='#g3-43'/>
