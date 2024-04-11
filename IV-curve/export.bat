@@ -1,3 +1,2 @@
-asy -noV -f png diffusion
-asy -noV -f pdf diffusion
-asy -noV -f svg diffusion
+asy -noV -f png figure
+asy -noV -f pdf figure
