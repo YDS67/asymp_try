@@ -1,9 +1,10 @@
 import graph;
 
-defaultpen(fontsize(8pt));
+defaultpen(fontsize(14pt));
 settings.render = 16;
+settings.tex = "pdflatex";
 
-size(8cm, 6cm, IgnoreAspect);
+size(12cm, 9cm, IgnoreAspect);
 
 file in1 = input("data/diffusion_results_FD.dat").line();
 real[][] dat1 = in1;
@@ -24,7 +25,7 @@ real ymax = max(y1);
 
 label("Random walk / diffusion", (0, 1.1 * ymax), align=N, black);
 
-pen p = linewidth(1);
+pen p = linewidth(2);
 marker mark = marker(scale(1)*unitcircle,FillDraw(black));
 
 draw(graph(x1, y1), blue+p, 
