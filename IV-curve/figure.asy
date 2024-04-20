@@ -29,17 +29,19 @@ real ymax = max(y1);
 // label("Средняя скорость электронов в направлении электрического поля", (0, 1.1 * ymax), align=N, black);
 
 pen p = linewidth(1);
-marker mark = marker(scale(1)*unitcircle,FillDraw(black));
+marker mark1 = marker(scale(1.5)*unitcircle,blue,FillDraw(blue));
+marker mark2 = marker(scale(1.5)*unitcircle,red,FillDraw(white));
 
-draw(graph(x1, y1), blue+p, mark, legend = Label("$\langle v_x  ( E ) \rangle$", black));
+draw(graph(x1, y1), blue+p, mark1, legend = Label("$\langle v_x  ( E ) \rangle$ with $Q$", black));
+draw(graph(x2, y3), red+p, mark2, legend = Label("$\langle v_x  ( E ) \rangle$ without $Q$", black));
 label(graphic("data/QuantPotential_map_10.png", "width=2cm"), (3,-0.6));
 label("$Q(x,y)$", (2,-0.6), 3W);
 
-label("$\displaystyle \frac{d\vec{v}}{dt} = \frac{e}{m^*} \vec{E} - \frac{1}{m^*} \nabla \left(U(\vec{r})-Q(\vec{r}) \right) - \frac{\vec{v}}{\tau}$", (-4.8,0.75), align=E);
-label("$\displaystyle Q = \frac{\hbar^2}{2m} \frac{\Delta \sqrt{n}}{\sqrt{n}}$", (-4.8,0.25), align=E);
+label("$\displaystyle \frac{d\vec{v}}{dt} = \frac{e}{m^*} \vec{E} - \frac{1}{m^*} \nabla \left(U(\vec{r})-Q(\vec{r}) \right) - \frac{\vec{v}}{\tau}$", (-4.8,0.55), align=E);
+label("$\displaystyle Q = \frac{\hbar^2}{2m} \frac{\Delta \sqrt{n}}{\sqrt{n}}$", (-4.8,0.05), align=E);
 
 xaxis("Напряжённость электрического поля, кВ/см",BottomTop,LeftTicks);
 yaxis("Скорость электронов, нм/фс",LeftRight,RightTicks(rotate(90)*Label()));
 
 attach(legend(linelength = 20, vskip = 1.5, ymargin = 1, xmargin = 1), 
-    (point(W).x,truepoint(N).y), 5SE, UnFill);
+    (-4.8,1.35), align=SE, UnFill);
