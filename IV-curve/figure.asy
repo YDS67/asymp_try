@@ -31,8 +31,8 @@ path cl = scale(3)*(E..N..W..S..cycle);
 marker mark1 = marker(sq,blue+linewidth(1),FillDraw(white));
 marker mark2 = marker(cl,red+linewidth(1),FillDraw(white));
 
-draw(graph(x1, y1), blue+linewidth(2), mark1, legend = Label("$\langle v_x  ( E ) \rangle$ with $Q$", black));
-draw(graph(x2, y3*1.2), red+linewidth(2), mark2, legend = Label("$\langle v_x  ( E ) \rangle$ without $Q$", black));
+draw(graph(x1, y1), blue+linewidth(2), mark1, legend = Label("$\langle v_x  ( E ) \rangle$ с учётом $Q$", black));
+draw(graph(x2, y3*1.2), red+linewidth(2), mark2, legend = Label("$\langle v_x  ( E ) \rangle$ без учёта $Q$", black));
 label(graphic("data/QuantPotential_map_10.png", "width=3cm"), (3,-0.7));
 label("$Q(x,y)$", (2,-0.7), 3W);
 
