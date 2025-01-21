@@ -1,7 +1,8 @@
 import graph;
-texpreamble("\usepackage{mathtext}\usepackage[russian]{babel}");
-defaultpen(font("T2A","cmr","m","n"));
-settings.tex = "pdflatex";
+
+texpreamble("\usepackage{mathtext}\usepackage{unicode-math}\usepackage[russian]{babel}\usepackage{fontspec}\setmainfont{Times New Roman}\setmathfont{Cambria Math}");
+
+settings.tex = "lualatex";
 
 defaultpen(fontsize(12pt)+linewidth(0.75));
 settings.render = 8;
