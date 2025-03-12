@@ -16,7 +16,7 @@ pen c_orange = rgb("#f7d9c4");
 pen c_gray = rgb("#888888");
 pen axes = blue;
 
-real width = 7;
+real width = 7.2;
 real height = 5;
 real nc_length_L = 4;
 real nc_width_w = 0.4;
@@ -35,8 +35,8 @@ label("channel: $U_c$", center+(0,period_a), align=S);
 label("barrier: $U_b$", center+(0,period_a), align=2N);
 label("source: $U_s$", (0,height*0.75), align=2E);
 label("drain: $U_d$", center+(nc_length_L/2,height*0.25), align=2E);
-label(minipage("$\Psi_s=e^{ikx}+R(z)e^{-ikx}$",width=1.75), (0,height*0.25), align=2E);
-label(minipage("$\Psi_d=T(z)e^{ik(x-L)}$",width=1.75), (center.x+nc_length_L/2,height*0.25), align=2E);
+label(minipage("$\Psi_s=e^{ik_sx}+R(y)e^{-ik_sx}$",width=1.75), (0,height*0.25), align=2E);
+label(minipage("$\Psi_d=T(y)e^{ik_d(x-L)}$",width=1.75), (center.x+nc_length_L/2,height*0.25), align=2E);
 
 fill(shift((0,period_a))*channel,c_green);
 draw(shift((0,period_a))*channel);
@@ -62,7 +62,7 @@ label("$w$",center-(nc_length_L/4,nc_width_w/2), red, align=2W);
 draw(center-(nc_length_L/2,nc_width_w) -- center+(width/2.3,-nc_width_w), arrow=Arrow(SimpleHead), axes);
 draw(center-(nc_length_L/2,height/2.1) -- center-(nc_length_L/2,0)+(0,height/2.1), arrow=Arrow(SimpleHead), axes);
 label("$x$", center+(width/2.3,-nc_width_w), align=N, axes);
-label("$z$", center-(nc_length_L/2,0)+(0,height/2.1), align=E, axes);
+label("$y$", center-(nc_length_L/2,0)+(0,height/2.1), align=E, axes);
 label("$0$", center-(nc_length_L/2,nc_width_w), align=2W);
 //label("$y$", center-(nc_length_L/2,nc_width_w), align=2S+E);
 dot(center-(nc_length_L/2,nc_width_w), blue);
