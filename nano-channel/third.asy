@@ -102,7 +102,7 @@ label("$\Psi=e^{i(k_{sx}x+k_{sy}y)}$", incidence_point, align=NW, incidence_col)
 
 label("$\Psi=R(y) e^{i(-k_{sx}x+k_{sy}y)}$", reflection_point, align=N, reflected_col);
 
-label(minipage("$$R(y)=\sum_{l} R_l \phi_l(y)$$", width=3), impact_point-width/2*(1,0), align=N, reflected_col);
+label(minipage("$$R(y)=1+\sum_{l} R_l \phi_l(y)$$", width=3), impact_point-width/2*(1,0), align=N, reflected_col);
 
 label(minipage("$$\Psi=\sum_{l} I_l \phi_l(y) e^{i \beta_l x}$$", width=3), impact_point+0.1*(refraction_point-impact_point), align=N, refracted_col);
 
