@@ -6,6 +6,13 @@ settings.render = 10;
 unitsize(x=1.4cm,y=1.4cm);
 
 //graphical parameters
+pen c_yellow = rgb("#faedcb");
+pen c_green = rgb("#c9e4de");
+pen c_blue = rgb("#c6def1");
+pen c_purple = rgb("#dbcdf0");
+pen c_red = rgb("#f2c6de");
+pen c_orange = rgb("#f7d9c4");
+pen c_gray = rgb("#cccccc");
 real opaque = 0.4;
 real width = 8;
 real height = 5;
@@ -51,15 +58,15 @@ fill(border, white);
 real delta = width/9;
 path fluxAs = (0,0.95*height) -- (0,0.8*height);
 for(int i=1; i < 9; ++i){
-    draw(shift((delta*i,0))*fluxAs, arrow=Arrow(SimpleHead), deepgreen);
+    draw(shift((delta*i,0))*fluxAs, arrow=Arrow(SimpleHead), purple);
 }
 draw("$F_{As}$", (0.5*width, 0.75*height), align = N);
 
-fill(droplet_cover -- cycle, paleblue);
-fill(droplet -- cycle, palered);
+fill(droplet_cover -- cycle, c_blue);
+fill(droplet -- cycle, c_red);
 label("Ga", droplet_center, align = 3N, darkmagenta);
-draw(droplet, deepgrey);
-fill(surface, paleblue);
+draw(droplet, c_gray);
+fill(surface, c_blue);
 label("GaAs", droplet_center, align = 4S, darkmagenta);
 dot(droplet_center);
 fill(fluxGa -- cycle, lightgray);
