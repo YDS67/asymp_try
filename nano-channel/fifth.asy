@@ -106,6 +106,6 @@ draw(refracted_ray, arrow=Arrow(), refracted_col);
 
 label(minipage("$$\Psi=\sum_{l} I_l \phi_l(y) e^{i \beta_l x}$$", width=3), impact_point-(width*0.15,0), align=N, refracted_col);
 
-label(minipage("$$\phi_l(y) = \sqrt{\frac{2}{w}} \sin \left( \frac{\pi l y}{w} \right) \qquad \beta_l = \sqrt{k^2-\frac{\pi^2 l^2}{w^2}}$$", width=7), impact_point-(width*0.3,-channel_w), align=N, reflected_col);
+label(minipage("$$\phi_l(y) = \sqrt{\frac{2}{w}} \sin \left( \frac{\pi l y}{w} \right) \qquad \beta_l = \sqrt{k^2_c-\frac{\pi^2 l^2}{w^2}}$$", width=7), impact_point-(width*0.3,-channel_w), align=N, reflected_col);
 
-label(minipage("$$k^2 = \frac{2m_c (E-U_c)}{\hbar^2}$$", width=3), impact_point-(width*0.15,channel_w), align=S, uaxis);
+label(minipage("$$k^2_c = \frac{2m_c (E-U_c)}{\hbar^2}$$", width=3), impact_point-(width*0.15,channel_w), align=S, uaxis);
