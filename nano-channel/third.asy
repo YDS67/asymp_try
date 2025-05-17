@@ -56,15 +56,6 @@ real channel_w = 1;
 path channel = box(impact_point-(0,channel_w),impact_point+(width/2,channel_w));
 path forbidden = box(origin, (width, height));
 
-// real nc_length_L = 4;
-// real nc_width_w = 0.4;
-// real period_a = 1;
-// pair center = (width/2,height/2);
-// path channel = box(center-(nc_length_L/2,nc_width_w),center+(nc_length_L/2,0));
-// path barrier = box((width/2-nc_length_L/2,0),(width/2+nc_length_L/2,height));
-// path source = box((0,0),center-(nc_length_L/2,-height/2));
-// path drain = box(center+(nc_length_L/2,-height/2),(width,height));
-
 fill(box((-1,-1),(width+1,height+1)), white);
 fill(forbidden, c_gray);
 fill(channel, c_blue);
