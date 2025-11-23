@@ -28,7 +28,7 @@ real speed = 2;
 real angle_theta = pi/3;
 real impact_parameter_max_squared = ellipse_a^2*sin(angle_theta)^2+ellipse_b^2*cos(angle_theta)^2;
 real impact_parameter_max = sqrt(impact_parameter_max_squared);
-real impact_parameter_beta = 0.75*impact_parameter_max;
+real impact_parameter_beta = -0.75*impact_parameter_max;
 real impact_x = (-ellipse_a^2*impact_parameter_beta*sin(angle_theta)-ellipse_a*ellipse_b*cos(angle_theta)*sqrt(impact_parameter_max_squared-impact_parameter_beta^2))/impact_parameter_max_squared;
 real impact_y = (ellipse_b^2*impact_parameter_beta*cos(angle_theta)-ellipse_a*ellipse_b*sin(angle_theta)*sqrt(impact_parameter_max_squared-impact_parameter_beta^2))/impact_parameter_max_squared;
 real line_to_center_length = sqrt(impact_x^2+impact_y^2);
@@ -56,7 +56,7 @@ pair impact_parameter_center = 0.9*center_impact_start + 0.5*impact_parameter_be
 
 fill(background,white);
 // draw((half_width + 0.5spacing,-half_height) -- (half_width + 0.5spacing,half_height), gray+dashed);
-label("$\beta = 0.75 \cdot \beta_{\max}$", (half_width + 0.5spacing,0.75*half_height));
+label("$p = -0.75 \cdot p_{\max}$", (half_width + 0.5spacing,0.75*half_height));
 
 fill(ellipse_,c_blue);
 draw(ellipse_);
@@ -68,7 +68,7 @@ draw(velocity_m, arrow=Arrow(SimpleHead), blue);
 //label("$\vec{v}$", velocity_start, align=N+2E, blue);
 draw(velocity_line, small_dash+blue);
 draw(impact_parameter_line, small_dash);
-label("$\beta$", impact_parameter_center, align=S);
+label("$p$", impact_parameter_center, align=S);
 draw(normal, arrow=Arrow(SimpleHead), red);
 //label("$\vec{n}$", impact, align=N+W, red);
 draw(normal_line, small_dash+red);
