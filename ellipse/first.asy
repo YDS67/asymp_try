@@ -27,7 +27,8 @@ real ellipse_b = 2.5;
 real speed = 2;
 real angle_theta = pi/3;
 real impact_parameter_max_squared = ellipse_a^2*sin(angle_theta)^2+ellipse_b^2*cos(angle_theta)^2;
-real impact_parameter_beta = 0;
+real impact_parameter_max = sqrt(impact_parameter_max_squared);
+real impact_parameter_beta = 0*impact_parameter_max;
 real impact_x = (-ellipse_a^2*impact_parameter_beta*sin(angle_theta)-ellipse_a*ellipse_b*cos(angle_theta)*sqrt(impact_parameter_max_squared-impact_parameter_beta^2))/impact_parameter_max_squared;
 real impact_y = (ellipse_b^2*impact_parameter_beta*cos(angle_theta)-ellipse_a*ellipse_b*sin(angle_theta)*sqrt(impact_parameter_max_squared-impact_parameter_beta^2))/impact_parameter_max_squared;
 
@@ -47,7 +48,8 @@ path normal = impact -- normal_end;
 path normal_line = impact -- impact - normal_unit*3;
 
 fill(background,white);
-draw((half_width + 0.5spacing,-half_height) -- (half_width + 0.5spacing,half_height), gray+dashed);
+// draw((half_width + 0.5spacing,-half_height) -- (half_width + 0.5spacing,half_height), gray+dashed);
+label("$\beta = 0 \cdot \beta_{\max}$", (half_width + 0.5spacing,0.5*half_height));
 
 fill(ellipse_,c_blue);
 draw(ellipse_);
