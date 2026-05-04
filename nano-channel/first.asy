@@ -31,12 +31,12 @@ fill(box((0,0),(width,height)),white);
 fill(barrier,c_yellow);
 fill(channel,c_green);
 draw(channel);
-label("channel: $U_c$", center+(0,period_a), align=S);
-label("barrier: $U_b$", center+(0,period_a), align=2N);
-label("source: $U_s$", (0,height*0.75), align=2E);
-label("drain: $U_d$", center+(nc_length_L/2,height*0.25), align=2E);
-label(minipage("$\Psi_s=e^{ik_sx}+R(y)e^{-ik_sx}$",width=1.75), (0,height*0.25), align=2E);
-label(minipage("$\Psi_d=T(y)e^{ik_d(x-L)}$",width=1.75), (center.x+nc_length_L/2,height*0.25), align=2E);
+label("Channel: $U_c,m_c$", center+(0,period_a), align=S);
+label("Barrier: $U_b,m_b$", center+(0,period_a), align=2N);
+label(minipage("Source: \\ $U_s,m_s$", width=1.75), (center.x/2-nc_length_L/4,height*0.75), align=4W);
+label(minipage("Drain: \\ $U_d,m_d$", width=1.75), (3*center.x/2+nc_length_L/4,height*0.75), align=4W);
+label("$\Psi_s$", center/2-(nc_length_L/4,0), align=N);
+label("$\Psi_d$", (3*center.x/2+nc_length_L/4,height*0.25), align=N);
 
 fill(shift((0,period_a))*channel,c_green);
 draw(shift((0,period_a))*channel);
