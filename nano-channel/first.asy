@@ -34,7 +34,7 @@ draw(channel);
 label("Channel: $U_c,m_c$", center+(0,period_a), align=S);
 label("Barrier: $U_b,m_b$", center+(0,period_a), align=2N);
 label(minipage("Source: \\ $U_s,m_s$", width=1.75), (center.x/2-nc_length_L/4,height*0.75), align=4W);
-label(minipage("Drain: \\ $U_d,m_d$", width=1.75), (3*center.x/2+nc_length_L/4,height*0.75), align=4W);
+label(minipage("Drain: \\ $U_s,m_s$", width=1.75), (3*center.x/2+nc_length_L/4,height*0.75), align=4W);
 label("$\Psi_s$", center/2-(nc_length_L/4,0), align=N);
 label("$\Psi_d$", (3*center.x/2+nc_length_L/4,height*0.25), align=N);
 
